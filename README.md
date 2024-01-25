@@ -41,13 +41,13 @@ Two options:
 Create the `/etc/apt/sources.list.d/mongodb-org-7.0.list` file for **`Ubuntu 22.04 (Jammy)`**: 
 
 ```nginx
-echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list 
+echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
 ```
 
 Create the `/etc/apt/sources.list.d/mongodb-org-7.0.list` file for **`Ubuntu 20.04 (Focal)`**: 
 
 ```nginx
-echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list 
+echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
 ```
 
 ### Reload local package database 
@@ -65,7 +65,7 @@ You can install either the latest stable version of MongoDB or a specific versio
 To install the latest stable version, issue the following 
 
 ```nginx
-sudo apt-get install -y mongodb-org 
+sudo apt-get install -y mongodb-org
 ```
 
 **Installation is completed.** 
@@ -153,8 +153,9 @@ sudo apt-get purge "mongodb-org*"
 Remove MongoDB databases and log files. 
 
 ```nginx
-sudo rm -r /var/log/mongodb 
-
+sudo rm -r /var/log/mongodb
+```
+```nginx
 sudo rm -r /var/lib/mongodb
 ```
 
