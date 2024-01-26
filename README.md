@@ -1,5 +1,8 @@
 <h1 align="center"> Mongodb-Community-Configuration </h1>
 
+| [Installation](#install-mongodb-community-edition) | [Start MongoDB](#start-mongodb) | [Using MongoDB](#begin-using-mongodb) | [Uninstall MongoDB](#uninstall-mongodb-community-edition) |
+| :--: | :--: | :--: | :--: |
+
 ## Install MongoDB Community Edition on Ubuntu 
 
 ### Considerations 
@@ -118,7 +121,7 @@ As needed, you can stop the mongod process by issuing the following command: 
 sudo  systemctl stop mongod
 ```
 
-### Restart MongoDB. 
+### Restart MongoDB
 
 You can restart the mongod process by issuing the following command: 
 
@@ -128,7 +131,7 @@ sudo  systemctl restart mongod
 
 You can follow the state of the process for errors or important messages by watching the output in the `/var/log/mongodb/mongod.log` file. 
 
-## Begin using MongoDB. 
+## Begin using MongoDB
 
 Start a mongosh  session on the same host machine as the mongod. You can run mongosh  without any command-line options to connect to a mongod that is running on your **`localhost`** with default **`port 27017`**. 
 
@@ -136,11 +139,11 @@ Start a mongosh  session on the same host machine as the mongod. You can run mon
 mongosh
 ```
 
-## Uninstall MongoDB Community Edition 
+## Uninstall MongoDB Community Edition
 
 To completely remove MongoDB from a system, you must remove the MongoDB applications themselves, the configuration files, and any directories containing data and logs. The following section guides you through the necessary steps. 
 
-### Stop MongoDB. 
+### Stop MongoDB
 
 Stop the mongod process by issuing the following command: 
 
@@ -148,7 +151,7 @@ Stop the mongod process by issuing the following command: 
 sudo service mongod stop
 ```
 
-### Remove Packages. 
+### Remove Packages
 
 Remove any MongoDB packages that you had previously installed. 
 
@@ -156,7 +159,7 @@ Remove any MongoDB packages that you had previously installed. 
 sudo apt-get purge "mongodb-org*"
 ```
 
-### Remove Data Directories. 
+### Remove Data Directories
 
 Remove MongoDB databases and log files. 
 
