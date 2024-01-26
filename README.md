@@ -1,4 +1,4 @@
-# Mongodb-Community-Configuration
+<h1 align="center"> Mongodb-Community-Configuration </h1>
 
 ## Install MongoDB Community Edition on Ubuntu 
 
@@ -28,6 +28,14 @@ From a terminal, install gnupg and curl if they are not already available: 
 
 ```nginx
 sudo apt-get install gnupg curl
+```
+
+To import the MongoDB public GPG key from https://pgp.mongodb.com/server-7.0.asc, run the following command:
+
+```nginx
+curl -fsSL https://pgp.mongodb.com/server-7.0.asc | \
+   sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg \
+   --dearmor
 ```
 
 ### Create a list file for MongoDB 
