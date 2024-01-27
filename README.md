@@ -1,6 +1,9 @@
 <h1 align="center"> Mongodb-Community-Configuration </h1>
 
-| [Installation](#install-mongodb-community-edition) | [Start MongoDB](#start-mongodb) | [Using MongoDB](#begin-using-mongodb) | [Uninstall MongoDB](#uninstall-mongodb-community-edition) |
+| [Installation](#install-mongodb-community-edition) | [Start MongoDB](#start-mongodb) | [Using MongoDB](#begin-using-mongodb) | [Uninstall MongoDB](#uninstall-mongodb-community-edition) | [Using MongoDB](#begin-using-mongodb) |
+| :--: | :--: | :--: | :--: | :--: |
+
+| [Creating a User](#creating-a-user) | [Enable Authentication](#enable-authentication) | [Access with Authentication](#access-mongodb-shell-with-authentication) | [Connection with Host](#enable-connections-with-a-hostname-or-host-ip) |
 | :--: | :--: | :--: | :--: |
 
 ## Install MongoDB Community Edition on Ubuntu 
@@ -113,7 +116,7 @@ You can optionally ensure that MongoDB will start following a system reboot by i
 sudo  systemctl enable mongod
 ```
 
-### Stop MongoDB. 
+### Stop MongoDB
 
 As needed, you can stop the mongod process by issuing the following command: 
 
@@ -140,6 +143,134 @@ mongosh
 ```
 
 If all goes well, you will get a MongoDB shell of your localhost. You can perform [MogoDB Shell Operatioins](https://github.com/ipavanteja/mongodb-import-export?tab=readme-ov-file#mongodb-shell-commands)
+
+## Connection
+
+If your MongoDB Server is running locally, you can use the connection string "mongodb://localhost:<port>" where <port> is the port number you configured your server to listen for incoming connections. The default port is `27017`
+
+```nginx
+mongodb://localhost:27017
+```
+
+### Create a Database
+
+- Switch to the Admin Database:
+In the MongoDB shell, switch to the admin database:
+
+```nginx
+use admin
+```
+
+- Create a New Database:
+To create a new database, you can use the use command followed by the desired database name. For example, let's create a database named mydatabase:
+
+```nginx
+use mydatabase
+```
+If the database does not exist, MongoDB will create it for you. Note that the database won't appear in the list of databases until you insert some data into it.
+
+- Or, you can directly [Restore the DB from your Atlas Server](https://github.com/ipavanteja/mongodb-import-export?tab=readme-ov-file#1-export-data-from-mongodb-atlas)
+
+## Creating a User
+
+With access control enabled, users are required to identify themselves. You have to grant a user one or more roles. A role grants a user privileges to perform certain actions on MongoDB resources.
+
+- Create a user for a specific DB (**DB Owner**)
+
+   - Connect to mongo shell
+   ```nginx
+   mongosh
+   ```
+   - Switch to your DB
+   ```nginx
+   use yourDB
+   ```
+   - Use the `db.createUser()` method to create **DB Owner** user
+   ```javascript
+   db.createUser(
+      {
+         user: "YourUserName",
+         pwd: "YourPassword",
+         roles: [ { role: "dbOwner", db: "yourDB" } ]
+      }
+   )
+   ```
+   - Verify User Creation
+   ```nginx
+   db.getUsers()
+   ```
+   This command will display a list of users in your database, including the newly created user.
+
+## Enable Authentication
+Enabling authentication in MongoDB adds a layer of security to your database by requiring users to authenticate with valid credentials before accessing the database.
+
+- Edit MongoDB Configuration
+```nginx
+sudo nano /etc/mongod.conf
+```
+
+Look for the security section in the configuration file. If it doesn't exist, add the following lines to enable authentication:
+```conf
+security:
+  authorization: enabled
+```
+Save the changes and exit the text editor.
+
+- Restart MongoDB
+After making changes to the configuration, restart the MongoDB service to apply the new settings
+```nginx
+sudo systemctl restart mongod
+```
+
+### Access MongoDB Shell with Authentication
+- Authenticate during Connection
+```nginx
+mongosh -u <userName> --authenticationDatabase <databaseName> -p
+```
+After pressing `enter` it will ask for the password. Type the password of that user and press `enter` and you will be logged in successfully.
+
+## Enable connections with a hostname or host IP
+To enable connections with a hostname or host IP in MongoDB, you need to configure MongoDB to bind to the appropriate network interfaces and provide the necessary authentication details
+
+- Edit MongoDB Configuration
+```nginx
+sudo nano /etc/mongod.conf
+```
+
+Look for the net section in the configuration file. If it doesn't exist, add the following lines to specify the network interfaces and their bind addresses
+
+```conf
+net:
+  bindIp: hostname_or_ip
+```
+
+Replace hostname_or_ip with the actual hostname or IP address you want to allow connections from. If you want to allow connections from any IP address, you can use **`0.0.0.0`**
+
+```conf
+net:
+  bindIp: 0.0.0.0
+```
+Save the changes and exit the text editor.
+
+- Restart MongoDB
+```nginx
+sudo systemctl restart mongod
+```
+
+## Connection with Host IP and Authentication
+MongoDB connection string with a username, password, and host IP
+
+```nginx
+mongodb://username:password@host_ip:port
+```
+
+Replace the following placeholders with your actual values:
+
+- **`username`**: Your MongoDB username
+- **`password`**: Your MongoDB password
+- **`host_ip`**: The IP address of your MongoDB server
+- **`port`**: The MongoDB server port (default is **`27017`**)
+
 
 ## Uninstall MongoDB Community Edition
 
