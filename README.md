@@ -133,11 +133,13 @@ You can follow the state of the process for errors or important messages by watc
 
 ## Begin using MongoDB
 
-Start a mongosh  session on the same host machine as the mongod. You can run mongosh  without any command-line options to connect to a mongod that is running on your **`localhost`** with default **`port 27017`**. 
+Start a `mongosh` session on the same host machine as the mongod. You can run mongosh  without any command-line options to connect to a mongod that is running on your **`localhost`** with default **`port 27017`**. 
 
 ```nginx
 mongosh
 ```
+
+If all goes well, you will get a MongoDB shell of your localhost. You can perform [MogoDB Shell Operatioins](https://github.com/ipavanteja/mongodb-import-export?tab=readme-ov-file#mongodb-shell-commands)
 
 ## Uninstall MongoDB Community Edition
 
