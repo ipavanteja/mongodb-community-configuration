@@ -1,4 +1,4 @@
-<h1 align="center"> Mongodb-Community-Configuration </h1>
+<h1 align="center">Mongodb-Community-Configuration</h1>
 
 | [Installation](#install-mongodb-community-edition) | [Start MongoDB](#start-mongodb) | [Using MongoDB](#begin-using-mongodb) | [Uninstall MongoDB](#uninstall-mongodb-community-edition) | [Using MongoDB](#begin-using-mongodb) |
 | :--: | :--: | :--: | :--: | :--: |
@@ -303,4 +303,4 @@ sudo rm -r /var/log/mongodb
 sudo rm -r /var/lib/mongodb
 ```
 
-[Go to Top](#considerations)
+[Go to Top](#mongodb-community-configuration)
