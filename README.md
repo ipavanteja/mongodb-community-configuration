@@ -1,9 +1,9 @@
 <h1 align="center">Mongodb-Community-Configuration</h1>
 
-| [Installation](#install-mongodb-community-edition) | [Start MongoDB](#start-mongodb) | [Using MongoDB](#begin-using-mongodb) | [Uninstall MongoDB](#uninstall-mongodb-community-edition) | [Using MongoDB](#begin-using-mongodb) |
+| [Installation](#install-mongodb-community-edition) | [Start MongoDB](#start-mongodb) | [Using MongoDB](#begin-using-mongodb) | [Using MongoDB](#begin-using-mongodb) | [Creating a User](#creating-a-user) |
 | :--: | :--: | :--: | :--: | :--: |
 
-| [Creating a User](#creating-a-user) | [Enable Authentication](#enable-authentication) | [Access with Authentication](#access-mongodb-shell-with-authentication) | [Connection with Host](#enable-connections-with-a-hostname-or-host-ip) |
+| [Enable Authentication](#enable-authentication) | [Access with Authentication](#access-mongodb-shell-with-authentication) | [Connection with Host](#enable-connections-with-a-hostname-or-host-ip) |[Uninstall MongoDB](#uninstall-mongodb-community-edition) |
 | :--: | :--: | :--: | :--: |
 
 ## Install MongoDB Community Edition on Ubuntu 
