@@ -303,4 +303,4 @@ sudo rm -r /var/log/mongodb
 sudo rm -r /var/lib/mongodb
 ```
 
-[Go to Top](#mongodb-community-configuration)
+[Go to Top](#considerations)
