@@ -303,4 +303,37 @@ sudo rm -r /var/log/mongodb
 sudo rm -r /var/lib/mongodb
 ```
 
+### Remove MongoDB Configuration Files
+
+Remove MongoDB configuration files, if any:
+
+```nginx
+sudo rm /etc/mongod.conf
+```
+
+### Update Package Cache
+
+Update the package cache to ensure that the changes take effect:
+
+```nginx
+sudo apt-get update
+```
+
+### Optional: Remove MongoDB Tools
+
+If you installed MongoDB tools like mongosh or mongodb-database-tools, you can remove them as well:
+
+```nginx
+sudo apt-get purge mongosh
+sudo apt-get purge mongodb-database-tools
+```
+
+### Clean Up
+
+Finally, you can clean up unnecessary packages and dependencies:
+
+```nginx
+sudo apt-get autoremove
+```
+
 [Go to Top](#mongodb-community-configuration)
